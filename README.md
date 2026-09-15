@@ -15,11 +15,6 @@ Most harness lists are organized around engineering components such as orchestra
 - [Selection Principle](#selection-principle)
 - [How to Read an Entry](#how-to-read-an-entry)
 - [Organizational Building Blocks](#organizational-building-blocks)
-- [Organizations by Domain](#organizations-by-domain)
-  - [Software Engineering](#software-engineering)
-  - [Browser and Web Operations](#browser-and-web-operations)
-  - [Research](#research)
-  - [Government and Public Administration](#government-and-public-administration)
 - [Priority Domain Views](#priority-domain-views)
 - [Related Awesome Lists](#related-awesome-lists)
 
@@ -86,34 +81,9 @@ Reusable foundations from which downstream developers construct or specialize an
 - [Microsoft AutoGen AgentChat](https://github.com/microsoft/autogen) - Multi-agent constructor with autonomous participants and team coordination patterns; higher-order organizational closure remains largely application-owned. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/autogen-agentchat.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#autogen-agentchat) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#autogen-agentchat).
 - [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Minimal constructor around tool-using agents, handoffs, guardrails, sessions, and tracing; the application retains responsibility for the broader organization. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openai-agents-sdk.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#openai-agents-sdk) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#openai-agents-sdk).
 
-## Organizations by Domain
-
-These sections collect harnesses that ship an opinionated organization for a concrete class of work. The goal is not exhaustive domain coverage. Each entry should demonstrate a useful organizational contrast.
-
-### Software Engineering
-
-- [Cline](https://github.com/cline/cline) - Repository and terminal work form the operational layer; editor/runtime mechanisms coordinate execution, while broader regulation, review policy, and ultimate authority remain substantially user- or application-owned. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/cline.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#cline) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#cline).
-- [OpenHands](https://github.com/OpenHands/OpenHands) - Coding agents perform repository work inside isolated conversations and execution environments; the platform supplies operational infrastructure while organization-wide control remains only partially internalized. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openhands.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#openhands) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#openhands).
-- [SWE-agent](https://github.com/SWE-agent/SWE-agent) - Issue-to-patch work is organized around an agent-computer interface, making it a compact example of a strong operational S1 with most metasystem responsibilities outside the harness. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/swe-agent.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#swe-agent) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#swe-agent).
-
-### Browser and Web Operations
-
-- [Browser Use](https://github.com/browser-use/browser-use) - Browser interaction is the operational unit: the harness repeatedly observes, acts, and revises execution, while most higher-order organizational functions remain external. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/browser-use.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#browser-use) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#browser-use).
-- [Stagehand](https://github.com/browserbase/stagehand) - Web work combines agentic decisions with browser primitives and recovery mechanisms, providing a different operational interface while leaving organization-level policy and adaptation mostly parent-owned. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/stagehand.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#stagehand) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#stagehand).
-
-### Research
-
-- [GPT Researcher](https://github.com/assafelovic/gpt-researcher) - Research and writing roles perform evidence gathering and synthesis; planner/worker structure provides explicit coordination across operational research units. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/gpt-researcher.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#gpt-researcher) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#gpt-researcher).
-
-### Government and Public Administration
-
-This section is intentionally evidence-gated. A project belongs here only when the reviewed harness is actually designed for government or public-sector work. Government ownership, generic governance features, or policy tooling alone are not sufficient.
-
-No entry is included until both the completed Index assessment and the domain evidence support inclusion.
-
 ## Priority Domain Views
 
-The following domains are especially useful for VSM analysis because operational work and metasystem responsibilities can be separated meaningfully. They are **coverage priorities**, not empty categories that need to be filled for completeness.
+These are **curation directions**, not empty categories and not a completeness checklist. A domain gets its own curated section only after the Index contains enough assessed systems to show a meaningful organizational contrast through VSM.
 
 <dl>
   <dt><strong>Government &amp; Public Administration</strong></dt>
@@ -138,7 +108,7 @@ The following domains are especially useful for VSM analysis because operational
   <dd>Can policy and ultimate authority be internalized or distributed, and what actually performs S5?</dd>
 </dl>
 
-A domain section should be created when assessed systems exist that provide meaningful organizational contrasts. The Index remains the place for exhaustive coverage.
+Until a domain reaches that threshold, its candidate harnesses remain discoverable and assessed in the Index rather than being duplicated here. This keeps the Awesome list differentiated from broad domain-oriented agent catalogs and prevents early categories such as coding, browser use, or generic research from dominating the presentation merely because they already have many projects.
 
 ## Related Awesome Lists
 
