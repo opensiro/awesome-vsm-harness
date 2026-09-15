@@ -58,15 +58,19 @@ awesome-vsm-harness
 
 Never use Awesome VSM Harness as evidence for the Index.
 
+Do not copy VSM state vectors, TL;DR/signature text, rank numbers, or ranking vectors into Awesome. Those values are generated and maintained in the Index. Awesome should only link to them.
+
 ## Entry Format
 
-Keep entries concise and consistent:
+Keep entries concise and consistent. Use the stable Index `harness_id` for the TL;DR and Ranking anchors:
 
 ```md
-- [Project](https://github.com/org/repo) — One sentence explaining why the project is useful in this section. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/project.md).
+- [Project](https://github.com/org/repo) — One sentence explaining why the project is useful in this section. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/project.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#project).
 ```
 
-Descriptions should explain the project's relevant harness shape or domain role, not repeat marketing copy.
+Include the three canonical links whenever the corresponding Index views exist. The anchor must be the Index `harness_id`, not a display-name slug or GitHub line number.
+
+Descriptions should explain the project's relevant harness shape or domain role, not repeat marketing copy or canonical VSM conclusions.
 
 ## Curation Standard
 
@@ -84,6 +88,7 @@ For a new entry, include:
 
 - the upstream repository;
 - the existing VSM assessment link;
+- the stable TL;DR and Ranking anchor links when available;
 - proposed section and domain;
 - one short reason the project improves the curated map.
 
