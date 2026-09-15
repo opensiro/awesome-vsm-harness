@@ -21,7 +21,7 @@ This is **not** another exhaustive catalog of agent tools. Harness discovery and
 
 The VSM view asks where operations, coordination, current whole-system regulation, independent audit, prospective adaptation, identity, policy, and ultimate authority live inside a harness. It also asks who owns those functions: an agent, a downstream constructor, a parent system, nobody in the reviewed distribution, or an unresolved actor.
 
-The underlying assessments use the OpenSiro `A / C / P / — / ?` autonomy notation. The notation and evidence remain in the Index rather than being duplicated here.
+The underlying assessments use the OpenSiro `A / C / P / — / ?` autonomy notation. The notation and evidence remain in the Index rather than being duplicated here. Awesome VSM Harness does not copy VSM state vectors, cohort TL;DR signatures, or ranking values.
 
 ## How to Read This List
 
@@ -29,17 +29,17 @@ The underlying assessments use the OpenSiro `A / C / P / — / ?` autonomy notat
 
 **Applied** describes an opinionated harness already organized to carry out a concrete class of work.
 
-A harness can also belong to a domain view such as software engineering, research, or government. Domain and shape are separate dimensions. Every listed project links to its standalone assessment; if an assessment changes, this list should point to the updated evidence rather than restating VSM states locally.
+A harness can also belong to a domain view such as software engineering, research, or government. Domain and shape are separate dimensions. Every listed project exposes canonical `Assessment` · `TL;DR` · `Ranking` links into the Index where those views are available. If the Index changes, this list keeps pointing to the canonical data instead of restating it locally.
 
 ## Base / Constructor Harnesses
 
 Reusable foundations for building or specializing agent organizations.
 
-- [Agno](https://github.com/agno-agi/agno) - Agent runtime and framework for composing agents and teams with persistent state and team-level execution patterns. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/agno.md).
-- [CrewAI](https://github.com/crewAIInc/crewAI) - Framework for composing role-based agent crews and event-driven flows into application-specific organizations. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/crewai.md).
-- [LangGraph](https://github.com/langchain-ai/langgraph) - Stateful graph runtime for durable agent workflows and application-defined control paths. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/langgraph.md).
-- [Microsoft AutoGen AgentChat](https://github.com/microsoft/autogen) - Multi-agent application framework with reusable team, orchestration, and group-chat patterns. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/autogen-agentchat.md).
-- [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Reusable agent SDK with tools, handoffs, guardrails, sessions, and tracing for application-defined organizations. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openai-agents-sdk.md).
+- [Agno](https://github.com/agno-agi/agno) - Agent runtime and framework for composing agents and teams with persistent state and team-level execution patterns. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/agno.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#agno) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#agno).
+- [CrewAI](https://github.com/crewAIInc/crewAI) - Framework for composing role-based agent crews and event-driven flows into application-specific organizations. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/crewai.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#crewai) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#crewai).
+- [LangGraph](https://github.com/langchain-ai/langgraph) - Stateful graph runtime for durable agent workflows and application-defined control paths. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/langgraph.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#langgraph) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#langgraph).
+- [Microsoft AutoGen AgentChat](https://github.com/microsoft/autogen) - Multi-agent application framework with reusable team, orchestration, and group-chat patterns. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/autogen-agentchat.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#autogen-agentchat) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#autogen-agentchat).
+- [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Reusable agent SDK with tools, handoffs, guardrails, sessions, and tracing for application-defined organizations. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openai-agents-sdk.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#openai-agents-sdk) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#openai-agents-sdk).
 
 ## Applied Harnesses
 
@@ -47,18 +47,18 @@ Opinionated systems organized around a concrete class of work.
 
 ### Software Engineering
 
-- [Cline](https://github.com/cline/cline) - Coding harness for autonomous repository and terminal work with editor integration, tools, feedback, and extensible team surfaces. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/cline.md).
-- [OpenHands](https://github.com/OpenHands/OpenHands) - Software-engineering harness for repository work, coding-agent execution, and automation across isolated conversations and backends. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openhands.md).
-- [SWE-agent](https://github.com/SWE-agent/SWE-agent) - Software-engineering harness centered on an agent-computer interface for issue-to-patch repository work. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/swe-agent.md).
+- [Cline](https://github.com/cline/cline) - Coding harness for autonomous repository and terminal work with editor integration, tools, feedback, and extensible team surfaces. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/cline.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#cline) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#cline).
+- [OpenHands](https://github.com/OpenHands/OpenHands) - Software-engineering harness for repository work, coding-agent execution, and automation across isolated conversations and backends. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openhands.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#openhands) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#openhands).
+- [SWE-agent](https://github.com/SWE-agent/SWE-agent) - Software-engineering harness centered on an agent-computer interface for issue-to-patch repository work. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/swe-agent.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#swe-agent) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#swe-agent).
 
 ### Browser and Web
 
-- [Browser Use](https://github.com/browser-use/browser-use) - Browser-focused harness that turns goals into iterative browser actions and observations. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/browser-use.md).
-- [Stagehand](https://github.com/browserbase/stagehand) - Browser automation harness combining agentic execution with browser primitives and self-healing interaction. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/stagehand.md).
+- [Browser Use](https://github.com/browser-use/browser-use) - Browser-focused harness that turns goals into iterative browser actions and observations. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/browser-use.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#browser-use) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#browser-use).
+- [Stagehand](https://github.com/browserbase/stagehand) - Browser automation harness combining agentic execution with browser primitives and self-healing interaction. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/stagehand.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#stagehand) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#stagehand).
 
 ### Research
 
-- [GPT Researcher](https://github.com/assafelovic/gpt-researcher) - Autonomous research harness with specialized research, writing, and fact-checking workflow roles. [VSM assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/gpt-researcher.md).
+- [GPT Researcher](https://github.com/assafelovic/gpt-researcher) - Autonomous research harness with specialized research, writing, and fact-checking workflow roles. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/gpt-researcher.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#gpt-researcher) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#gpt-researcher).
 
 ### Government and Public Sector
 
