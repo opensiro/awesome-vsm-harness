@@ -10,28 +10,55 @@ A project should normally satisfy all of the following:
 
 1. It is an agent harness, agent runtime, or closely related system where organizational structure is meaningful.
 2. It already has a completed standalone assessment in `opensiro/vsm-harness-index`.
-3. There is a clear reason a reader would benefit from seeing it in this curated list.
-4. Its proposed shape and domain placement can be explained without inventing new VSM claims in this repository.
+3. If proposed for a domain section, the reviewed distribution is explicitly designed to perform work in that domain.
+4. It adds a useful organizational contrast rather than duplicating a VSM form already represented clearly in the same domain.
+5. Its description can be grounded in the Index assessment without inventing new VSM claims in this repository.
 
 If a project has not been assessed yet, propose or queue it in the [VSM Harness Index](https://github.com/opensiro/vsm-harness-index) first.
 
+## What This List Optimizes For
+
+Awesome VSM Harness is intentionally not exhaustive. The Index may grow to hundreds or thousands of systems; this list should remain browsable.
+
+Selection optimizes for:
+
+1. **Domain relevance** — the project genuinely performs work in the stated domain.
+2. **Organizational distinctiveness** — it demonstrates a VSM-relevant control structure not already represented clearly.
+3. **Evidence quality** — the Index assessment supports the organizational summary.
+4. **Current relevance** — activity, adoption, or contemporary architectural importance may break ties between otherwise similar projects.
+
+GitHub stars and VSM autonomy rank are not admission scores.
+
+When two projects in the same domain instantiate essentially the same organization, prefer the clearest representative. A new entry should improve the map, not merely increase the count.
+
 ## What Belongs Where
 
-### Base / Constructor
+### Organizational Building Blocks
 
-Use this section when the project is primarily a reusable foundation from which downstream developers construct or specialize an agent organization.
+Use this section for reusable foundations from which downstream developers construct or specialize an agent organization.
 
 Typical signals include first-party surfaces for composing roles, policies, models, coordination, authority, or other organizational decision rights.
 
-### Applied
+This section should remain compact. Broad framework coverage belongs in the Index and in other Awesome lists.
 
-Use this section when the project ships an opinionated organization for carrying out a concrete class of work, such as software engineering, browser operation, research, science, or another domain.
+### Organizations by Domain
 
-### Government and Public Sector
+Use a domain section when the project ships an opinionated organization for a concrete class of work.
 
-Use this domain only when the harness is actually designed for government or public-sector work.
+Examples include government operations, cybersecurity incident response, scientific discovery, industrial or robotic operations, enterprise operations, infrastructure/SRE, healthcare operations, legal/compliance work, logistics, or software engineering.
 
-Government ownership alone is not enough. Generic governance, policy, safety, or control-plane functionality also does not make a project a government harness.
+A domain label is not justified merely because:
+
+- the maintainer belongs to that industry;
+- the harness exposes generic governance, safety, workflow, or policy features;
+- a downstream user could configure the harness for the domain;
+- one README example mentions the domain.
+
+### Priority Domain Views
+
+Priority domains in the README are coverage directions, not quotas. Do not add weak entries to make a section look complete.
+
+Create or expand a domain section only when completed assessments provide meaningful organizational contrasts.
 
 ## VSM Evidence and Classification
 
@@ -58,27 +85,33 @@ awesome-vsm-harness
 
 Never use Awesome VSM Harness as evidence for the Index.
 
-Do not copy VSM state vectors, TL;DR/signature text, rank numbers, or ranking vectors into Awesome. Those values are generated and maintained in the Index. Awesome should only link to them.
+Do not copy canonical VSM state vectors, TL;DR/signature text, rank numbers, or ranking vectors into Awesome. Those values are generated and maintained in the Index. Awesome should link to them.
 
 ## Entry Format
 
-Keep entries concise and consistent. Use the stable Index `harness_id` for the TL;DR and Ranking anchors:
+Keep entries concise and organizationally specific. Use the stable Index `harness_id` for TL;DR and Ranking anchors:
 
 ```md
-- [Project](https://github.com/org/repo) — One sentence explaining why the project is useful in this section. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/project.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#project).
+- [Project](https://github.com/org/repo) — Mission and organizational signature: what performs the operational work, and what is distinctive about coordination, regulation, audit, adaptation, policy, or authority. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/project.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#project).
 ```
 
-Include the three canonical links whenever the corresponding Index views exist. The anchor must be the Index `harness_id`, not a display-name slug or GitHub line number.
+A good entry can usually be derived from three questions:
 
-Descriptions should explain the project's relevant harness shape or domain role, not repeat marketing copy or canonical VSM conclusions.
+```text
+Mission: what real-world work does the organization perform?
+Operations: what acts as S1?
+Control and authority: what is distinctive about the metasystem or parent authority?
+```
 
-## Curation Standard
+Avoid generic feature inventories such as `memory · tools · MCP · planning` unless one of those features is directly relevant to the organizational distinction.
 
-Awesome VSM Harness is intentionally not exhaustive.
+## Domain and VSM Are Orthogonal
 
-Prefer projects that are useful, representative, distinctive, or important for understanding the harness landscape. Do not add a project merely to increase coverage or because it appears in another Awesome list.
+Domain placement must not be inferred from the autonomy vector, and autonomy rank must not be used as a proxy for domain importance.
 
-When several near-identical projects exist, prefer the entry that gives the reader the clearest architectural contrast.
+Two systems in the same domain may have different VSM forms. Two systems in different domains may share the same form. Both observations are useful.
+
+The purpose of this repository is to expose those contrasts without changing the canonical assessment methodology.
 
 ## Pull Requests
 
@@ -89,11 +122,14 @@ For a new entry, include:
 - the upstream repository;
 - the existing VSM assessment link;
 - the stable TL;DR and Ranking anchor links when available;
-- proposed section and domain;
-- one short reason the project improves the curated map.
+- proposed domain or building-block section;
+- a short explanation of the organizational form it adds;
+- why an existing entry in that section does not already represent the same contrast.
 
 For a move between sections, explain what changed in the project or in the interpretation of its product shape.
 
 ## Related Lists
 
 Broad ecosystem lists are welcome in `Related Awesome Lists` when they provide a genuinely complementary discovery surface. They do not need a VSM assessment because they are references, not harness entries.
+
+Domain-oriented agent lists are also relevant references, but Awesome VSM Harness should remain differentiated by requiring reviewable harnesses and using VSM evidence to describe organizational control structure.
