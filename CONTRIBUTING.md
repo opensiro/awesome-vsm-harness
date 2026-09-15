@@ -10,9 +10,8 @@ A project should normally satisfy all of the following:
 
 1. It is an agent harness, agent runtime, or closely related system where organizational structure is meaningful.
 2. It already has a completed standalone assessment in `opensiro/vsm-harness-index`.
-3. If proposed for a domain section, the reviewed distribution is explicitly designed to perform work in that domain.
-4. It adds a useful organizational contrast rather than duplicating a VSM form already represented clearly in the same domain.
-5. Its description can be grounded in the Index assessment without inventing new VSM claims in this repository.
+3. It adds a useful organizational contrast rather than duplicating a VSM form already represented clearly.
+4. Its description can be grounded in the Index assessment without inventing new VSM claims in this repository.
 
 If a project has not been assessed yet, propose or queue it in the [VSM Harness Index](https://github.com/opensiro/vsm-harness-index) first.
 
@@ -22,14 +21,14 @@ Awesome VSM Harness is intentionally not exhaustive. The Index may grow to hundr
 
 Selection optimizes for:
 
-1. **Domain relevance** — the project genuinely performs work in the stated domain.
+1. **Domain relevance** — the project genuinely performs work in the stated domain when it is being considered for a domain view.
 2. **Organizational distinctiveness** — it demonstrates a VSM-relevant control structure not already represented clearly.
 3. **Evidence quality** — the Index assessment supports the organizational summary.
 4. **Current relevance** — activity, adoption, or contemporary architectural importance may break ties between otherwise similar projects.
 
 GitHub stars and VSM autonomy rank are not admission scores.
 
-When two projects in the same domain instantiate essentially the same organization, prefer the clearest representative. A new entry should improve the map, not merely increase the count.
+When two projects instantiate essentially the same organization, prefer the clearest representative. A new entry should improve the map, not merely increase the count.
 
 ## What Belongs Where
 
@@ -41,11 +40,11 @@ Typical signals include first-party surfaces for composing roles, policies, mode
 
 This section should remain compact. Broad framework coverage belongs in the Index and in other Awesome lists.
 
-### Organizations by Domain
+### Priority Domain Views
 
-Use a domain section when the project ships an opinionated organization for a concrete class of work.
+The README currently keeps domain coverage at the **view level** rather than maintaining populated domain sections for common categories such as coding, browser use, or generic research.
 
-Examples include government operations, cybersecurity incident response, scientific discovery, industrial or robotic operations, enterprise operations, infrastructure/SRE, healthcare operations, legal/compliance work, logistics, or software engineering.
+Priority domains are curation directions, not quotas. A domain should become a populated section only when the Index contains enough completed assessments to show a meaningful organizational contrast through VSM.
 
 A domain label is not justified merely because:
 
@@ -54,11 +53,7 @@ A domain label is not justified merely because:
 - a downstream user could configure the harness for the domain;
 - one README example mentions the domain.
 
-### Priority Domain Views
-
-Priority domains in the README are coverage directions, not quotas. Do not add weak entries to make a section look complete.
-
-Create or expand a domain section only when completed assessments provide meaningful organizational contrasts.
+Until a domain reaches the threshold for a useful curated comparison, its candidate systems should remain discoverable and assessed in the Index.
 
 ## VSM Evidence and Classification
 
@@ -117,16 +112,15 @@ The purpose of this repository is to expose those contrasts without changing the
 
 Keep a pull request focused on one logical change where practical.
 
-For a new entry, include:
+For a new building-block entry, include:
 
 - the upstream repository;
 - the existing VSM assessment link;
 - the stable TL;DR and Ranking anchor links when available;
-- proposed domain or building-block section;
 - a short explanation of the organizational form it adds;
-- why an existing entry in that section does not already represent the same contrast.
+- why an existing entry does not already represent the same contrast.
 
-For a move between sections, explain what changed in the project or in the interpretation of its product shape.
+For a proposed domain section, include enough assessed systems to demonstrate that the section adds a real organizational comparison rather than another generic application category.
 
 ## Related Lists
 
