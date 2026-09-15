@@ -16,7 +16,6 @@ This is **not** another exhaustive catalog of agent tools. Harness discovery and
   - [Research](#research)
   - [Government and Public Sector](#government-and-public-sector)
 - [Related Awesome Lists](#related-awesome-lists)
-- [Contributing](#contributing)
 
 ## Scope
 
