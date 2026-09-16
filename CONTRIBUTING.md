@@ -100,6 +100,27 @@ Control and authority: what is distinctive about the metasystem or parent author
 
 Avoid generic feature inventories such as `memory · tools · MCP · planning` unless one of those features is directly relevant to the organizational distinction.
 
+## Machine-checkable Index consistency
+
+`index-consistency` complements `awesome-lint`. Formatting remains the job of `awesome-lint`; the consistency job checks only deterministic relationships to a read-only checkout of the current canonical Index.
+
+For each curated README entry that links an Index assessment, it verifies that:
+
+- the referenced assessment exists;
+- the assessment filename and canonical `harness_id` agree;
+- the entry's upstream repository matches the assessment `repository` field;
+- the linked TL;DR and Ranking anchors use that `harness_id` and exist in the canonical generated files;
+- the entry does not copy a six-state vector, per-system state assignment, or numeric rank that belongs in the Index.
+
+The validator deliberately does **not** decide whether a harness is representative, organizationally distinctive, well evidenced, relevant to a domain, or currently important. Those remain curation judgments.
+
+To run the deterministic check locally with the repositories checked out side by side:
+
+```bash
+python scripts/validate_index_consistency.py --index-dir ../vsm-harness-index
+python -m unittest discover -s tests -v
+```
+
 ## Domain and VSM Are Orthogonal
 
 Domain placement must not be inferred from the autonomy vector, and autonomy rank must not be used as a proxy for domain importance.
