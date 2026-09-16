@@ -59,6 +59,26 @@ def has_explicit_anchor(text: str, harness_id: str) -> bool:
     return bool(pattern.search(text))
 
 
+def canonical_tldr_signature(text: str, harness_id: str) -> str | None:
+    anchor = f'id="{harness_id}"'
+    alternate_anchor = f"id='{harness_id}'"
+    for line in text.splitlines():
+        if anchor not in line and alternate_anchor not in line:
+            continue
+        if not line.lstrip().startswith("|"):
+            continue
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) < 9:
+            return None
+        signature = cells[-1]
+        return " ".join(signature.split()) or None
+    return None
+
+
+def normalize_text(text: str) -> str:
+    return " ".join(text.replace("`", "").split())
+
+
 def validate(readme_text: str, index_dir: Path) -> tuple[list[str], int]:
     errors: list[str] = []
     entries = 0
@@ -145,6 +165,14 @@ def validate(readme_text: str, index_dir: Path) -> tuple[list[str], int]:
             errors.append(
                 f"{prefix}: duplicates a canonical numeric ranking; link to the Index instead"
             )
+
+        signature = canonical_tldr_signature(tldr_text, harness_id) if tldr_text else None
+        if signature and len(signature) >= 30:
+            if normalize_text(signature) in normalize_text(line):
+                errors.append(
+                    f"{prefix}: duplicates the canonical TL;DR signature verbatim; "
+                    "keep the curated description distinct and link to the Index"
+                )
 
     if entries == 0:
         errors.append("README.md: no Index-backed curated harness entries found")
