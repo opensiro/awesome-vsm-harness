@@ -21,12 +21,21 @@ status: included
 """,
             encoding="utf-8",
         )
+        self.signature = (
+            "Alpha coordinates work through a canonical signature that belongs in the Index."
+        )
         (self.index_dir / "TLDR.md").write_text(
-            '<a id="alpha"></a>[Alpha](https://github.com/example/alpha)\n',
+            "| Harness | Year | S1 | S2 | S3 | S3* | S4 | S5 | Signature |\n"
+            "| --- | ---: | --- | --- | --- | --- | --- | --- | --- |\n"
+            f'| <a id="alpha"></a>[Alpha](https://github.com/example/alpha) | '
+            f"2026 | A | — | — | — | — | — | {self.signature} |\n",
             encoding="utf-8",
         )
         (self.index_dir / "RANKINGS.md").write_text(
-            '<a id="alpha"></a>[Alpha](https://github.com/example/alpha)\n',
+            '| Rank | Harness | Vector |\n'
+            '| ---: | --- | --- |\n'
+            '| 4 | <a id="alpha"></a>[Alpha](https://github.com/example/alpha) | '
+            '`A — — — — —` |\n',
             encoding="utf-8",
         )
         self.valid_entry = (
@@ -92,6 +101,10 @@ status: included
             "Organizational summary; rank 2.",
         )
         self.assert_error_contains(readme, "duplicates a canonical numeric ranking")
+
+    def test_verbatim_tldr_signature_duplication_fails(self):
+        readme = self.valid_entry.replace("Organizational summary.", self.signature)
+        self.assert_error_contains(readme, "duplicates the canonical TL;DR signature verbatim")
 
 
 if __name__ == "__main__":
