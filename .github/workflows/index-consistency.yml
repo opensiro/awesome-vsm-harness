@@ -1,0 +1,42 @@
+name: index-consistency
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "23 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Awesome VSM Harness
+        uses: actions/checkout@v4
+        with:
+          path: awesome
+
+      - name: Checkout canonical VSM Harness Index
+        uses: actions/checkout@v4
+        with:
+          repository: opensiro/vsm-harness-index
+          path: index
+          fetch-depth: 1
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test validator failure cases
+        working-directory: awesome
+        run: python -m unittest discover -s tests -v
+
+      - name: Validate Awesome against current canonical Index
+        working-directory: awesome
+        run: python scripts/validate_index_consistency.py --index-dir ../index
