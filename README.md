@@ -127,3 +127,5 @@ These lists are complementary discovery sources. Some organize the ecosystem by 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
 New harness discovery, missing evidence, and VSM classification changes should go through the [Index contributor entry point](https://github.com/opensiro/vsm-harness-index/blob/main/CONTRIBUTOR_START.md) first. This repository should stay a curated downstream view rather than becoming a second source of truth.
+
+Questions or proposals about **the organization shared by Profile, Skills, Index, and Awesome** — contributor roles, authority boundaries, cross-repository control/coordination, escalation, milestone sequencing, or the shared contribution workflow — belong in [`opensiro/vsm-oss-organization`](https://github.com/opensiro/vsm-oss-organization). Keep Awesome-specific curation and presentation work here.
