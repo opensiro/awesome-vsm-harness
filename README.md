@@ -3,6 +3,8 @@
 
 A curated map of **distinct organizational forms in agent harnesses across real-world domains**, backed by evidence-based [Viable System Model (VSM)](https://github.com/opensiro/vsm-harness-profile) assessments.
 
+> **Looking for current work?** Start with the shared [`OpenSiro VSM OSS TODO`](https://github.com/opensiro/vsm-oss-organization/blob/main/TODO.md), then follow the selected issue back to its owning repository. For new, unclassified, or cross-repository work, use the [`OpenSiro VSM OSS contributor entry`](https://github.com/opensiro/vsm-oss-organization/blob/main/CONTRIBUTOR_START.md). The owning issue/repository remains authoritative for task scope, evidence, validation, and acceptance.
+
 This repository is intentionally **not** an exhaustive harness directory. Discovery and assessment live in the [VSM Harness Index](https://github.com/opensiro/vsm-harness-index). Awesome VSM Harness selects representative systems from that evidence base to answer a different question:
 
 > What kind of organization does this harness instantiate, and where do operations, coordination, regulation, audit, adaptation, policy, and ultimate authority reside?
