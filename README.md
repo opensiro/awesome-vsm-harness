@@ -3,6 +3,8 @@
 
 A curated map of **distinct organizational forms in agent harnesses across real-world domains**, backed by evidence-based [Viable System Model (VSM)](https://github.com/opensiro/vsm-harness-profile) assessments.
 
+> **Looking for current work?** Start with the shared [`OpenSiro VSM OSS TODO`](https://github.com/opensiro/vsm-oss-organization/blob/main/TODO.md), then follow the selected issue back to its owning repository. For new, unclassified, or cross-repository work, use the [`OpenSiro VSM OSS contributor entry`](https://github.com/opensiro/vsm-oss-organization/blob/main/CONTRIBUTOR_START.md). The owning issue/repository remains authoritative for task scope, evidence, validation, and acceptance.
+
 This repository is intentionally **not** an exhaustive harness directory. Discovery and assessment live in the [VSM Harness Index](https://github.com/opensiro/vsm-harness-index). Awesome VSM Harness selects representative systems from that evidence base to answer a different question:
 
 > What kind of organization does this harness instantiate, and where do operations, coordination, regulation, audit, adaptation, policy, and ultimate authority reside?
@@ -126,7 +128,7 @@ These lists are complementary discovery sources. Some organize the ecosystem by 
 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
-For **currently tracked work across the bounded VSM Harness OSS group**, start with the shared [`OpenSiro VSM OSS TODO`](https://github.com/opensiro/vsm-oss-organization/blob/main/TODO.md), then return here when the selected task is Awesome-owned. `TODO.md` owns current selection/order only; Awesome remains authoritative for local curation and presentation acceptance.
+For **currently tracked work across the bounded VSM Harness OSS group**, use the prominent current-work address near the top of this README, then return here when the selected task is Awesome-owned. The shared scheduler owns current selection/order only; Awesome remains authoritative for local curation and presentation acceptance.
 
 New harness discovery, missing evidence, and VSM classification changes should go through the [Index contributor entry point](https://github.com/opensiro/vsm-harness-index/blob/main/CONTRIBUTOR_START.md) first. This repository should stay a curated downstream view rather than becoming a second source of truth.
 
