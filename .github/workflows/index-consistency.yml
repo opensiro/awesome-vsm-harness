@@ -33,6 +33,10 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Check repository-owned metrics
+        working-directory: awesome
+        run: python scripts/render_metrics.py --check
+
       - name: Test validator failure cases
         working-directory: awesome
         run: python -m unittest discover -s tests -v
