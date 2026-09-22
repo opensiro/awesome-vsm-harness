@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "curated_representative_entries": 5,
+  "curated_entry_ids": [
+    "agno",
+    "crewai",
+    "langgraph",
+    "autogen-agentchat",
+    "openai-agents-sdk"
+  ]
+}
