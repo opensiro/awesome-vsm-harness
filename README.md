@@ -24,6 +24,8 @@ Most harness lists are organized around engineering components such as orchestra
 
 The VSM view asks where the following organizational functions live inside a harness.
 
+> **Non-normative summary:** the short labels below are reader orientation only. The authoritative definitions, evidence boundaries, ownership rules, and category errors live in the [VSM Harness Profile](https://github.com/opensiro/vsm-harness-profile/blob/main/PROFILE.md).
+
 **S1 — Operations:** units that perform useful work.
 
 **S2 — Coordination:** mechanisms that damp conflicts and synchronize operations.
