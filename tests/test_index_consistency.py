@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from scripts.validate_index_consistency import INDEX_BLOB_BASE, validate
+from scripts.validate_index_consistency import GENERAL_INDEX_BLOB_BASE, validate
 
 
 class IndexConsistencyTests(unittest.TestCase):
@@ -40,9 +40,9 @@ status: included
         )
         self.valid_entry = (
             "- [Alpha](https://github.com/example/alpha) - Organizational summary. "
-            f"[Assessment]({INDEX_BLOB_BASE}/assessments/alpha.md) · "
-            f"[TL;DR]({INDEX_BLOB_BASE}/TLDR.md#alpha) · "
-            f"[Ranking]({INDEX_BLOB_BASE}/RANKINGS.md#alpha)."
+            f"[General assessment]({GENERAL_INDEX_BLOB_BASE}/assessments/alpha.md) · "
+            f"[TL;DR]({GENERAL_INDEX_BLOB_BASE}/TLDR.md#alpha) · "
+            f"[Ranking]({GENERAL_INDEX_BLOB_BASE}/RANKINGS.md#alpha)."
         )
 
     def tearDown(self):
@@ -52,14 +52,27 @@ status: included
         errors, _ = validate(readme, self.index_dir)
         self.assertTrue(any(fragment in error for error in errors), errors)
 
-    def test_valid_entry_passes(self):
+    def test_valid_general_entry_passes(self):
         errors, entries = validate(self.valid_entry, self.index_dir)
         self.assertEqual([], errors)
         self.assertEqual(1, entries)
 
+    def test_legacy_assessment_label_still_passes(self):
+        readme = self.valid_entry.replace("[General assessment]", "[Assessment]")
+        errors, entries = validate(readme, self.index_dir)
+        self.assertEqual([], errors)
+        self.assertEqual(1, entries)
+
+    def test_domain_specific_link_does_not_satisfy_general_index_contract(self):
+        readme = self.valid_entry.replace(
+            f"[General assessment]({GENERAL_INDEX_BLOB_BASE}/assessments/alpha.md)",
+            "[SWE assessment](https://github.com/example/vsm-harness-capability-swe/blob/main/assessments/alpha.md)",
+        )
+        self.assert_error_contains(readme, "no general-Index-backed curated harness entries")
+
     def test_missing_assessment_fails(self):
         readme = self.valid_entry.replace("alpha.md", "missing.md")
-        self.assert_error_contains(readme, "canonical assessment does not exist")
+        self.assert_error_contains(readme, "general assessment does not exist")
 
     def test_repository_mismatch_fails(self):
         readme = self.valid_entry.replace(
@@ -67,15 +80,17 @@ status: included
             "https://github.com/example/not-alpha",
             1,
         )
-        self.assert_error_contains(readme, "does not match Index repository")
+        self.assert_error_contains(readme, "does not match general Index repository")
 
     def test_wrong_anchor_link_fails(self):
         readme = self.valid_entry.replace("TLDR.md#alpha", "TLDR.md#wrong")
-        self.assert_error_contains(readme, "missing canonical TL;DR link")
+        self.assert_error_contains(readme, "missing general Index TL;DR link")
 
     def test_missing_canonical_anchor_fails(self):
         (self.index_dir / "RANKINGS.md").write_text("# Rankings\n", encoding="utf-8")
-        self.assert_error_contains(self.valid_entry, "RANKINGS.md has no explicit anchor")
+        self.assert_error_contains(
+            self.valid_entry, "general Index RANKINGS.md has no explicit anchor"
+        )
 
     def test_state_vector_duplication_fails(self):
         readme = self.valid_entry.replace(
@@ -83,7 +98,7 @@ status: included
             "Organizational summary: `A C C — — P`.",
         )
         self.assert_error_contains(
-            readme, "duplicates a canonical six-state VSM vector"
+            readme, "duplicates a canonical general six-state VSM vector"
         )
 
     def test_per_system_state_assignment_fails(self):
@@ -92,7 +107,7 @@ status: included
             "Organizational summary; S3: C.",
         )
         self.assert_error_contains(
-            readme, "duplicates a canonical per-system VSM state assignment"
+            readme, "duplicates a canonical general per-system VSM state assignment"
         )
 
     def test_numeric_ranking_duplication_fails(self):
@@ -100,11 +115,13 @@ status: included
             "Organizational summary.",
             "Organizational summary; rank 2.",
         )
-        self.assert_error_contains(readme, "duplicates a canonical numeric ranking")
+        self.assert_error_contains(readme, "duplicates a canonical general numeric ranking")
 
     def test_verbatim_tldr_signature_duplication_fails(self):
         readme = self.valid_entry.replace("Organizational summary.", self.signature)
-        self.assert_error_contains(readme, "duplicates the canonical TL;DR signature verbatim")
+        self.assert_error_contains(
+            readme, "duplicates the canonical general TL;DR signature verbatim"
+        )
 
 
 if __name__ == "__main__":
