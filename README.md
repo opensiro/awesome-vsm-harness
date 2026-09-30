@@ -3,6 +3,17 @@
 
 A curated map of **distinct organizational forms in agent harnesses across real-world domains**, backed by evidence-based [Viable System Model (VSM)](https://github.com/opensiro/vsm-harness-profile) assessments.
 
+## Contents
+
+- [I'm human](#im-human)
+- [I'm AI](#im-ai)
+- [Scope](#scope)
+- [Selection Principle](#selection-principle)
+- [How to Read an Entry](#how-to-read-an-entry)
+- [Organizational Building Blocks](#organizational-building-blocks)
+- [Priority Domain Views](#priority-domain-views)
+- [Related Awesome Lists](#related-awesome-lists)
+
 ## I'm human
 
 - **Web overview:** [opensiro.com](https://opensiro.com)
@@ -22,15 +33,6 @@ This repository is intentionally **not** an exhaustive harness directory. Discov
 > What kind of organization does this harness instantiate, and where do operations, coordination, regulation, audit, adaptation, policy, and ultimate authority reside?
 
 Most harness lists are organized around engineering components such as orchestration, context, memory, tools, sandboxing, evaluation, or observability. Domain-oriented agent lists also exist, but usually group applications without comparing their organizational control structure. This list focuses on the intersection: **harnesses × real operating domains × organizational architecture**.
-
-## Contents
-
-- [Scope](#scope)
-- [Selection Principle](#selection-principle)
-- [How to Read an Entry](#how-to-read-an-entry)
-- [Organizational Building Blocks](#organizational-building-blocks)
-- [Priority Domain Views](#priority-domain-views)
-- [Related Awesome Lists](#related-awesome-lists)
 
 ## Scope
 
