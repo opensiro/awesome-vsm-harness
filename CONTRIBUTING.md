@@ -4,6 +4,8 @@ Thanks for helping improve Awesome VSM Harness.
 
 This repository is a **curated presentation layer** over the independently maintained [VSM Harness Index](https://github.com/opensiro/vsm-harness-index). It is not the place where harnesses are first discovered or where VSM states are decided.
 
+The README owns the public curation rationale: see [Selection Principle](README.md#selection-principle), [How to Read an Entry](README.md#how-to-read-an-entry), and [Priority Domain Views](README.md#priority-domain-views). This file owns the actionable contribution and pull-request contract.
+
 ## Before You Add a Harness
 
 A project should normally satisfy all of the following:
@@ -15,45 +17,17 @@ A project should normally satisfy all of the following:
 
 If a project has not been assessed yet, propose or queue it in the [VSM Harness Index](https://github.com/opensiro/vsm-harness-index) first.
 
-## What This List Optimizes For
-
-Awesome VSM Harness is intentionally not exhaustive. The Index may grow to hundreds or thousands of systems; this list should remain browsable.
-
-Selection optimizes for:
-
-1. **Domain relevance** — the project genuinely performs work in the stated domain when it is being considered for a domain view.
-2. **Organizational distinctiveness** — it demonstrates a VSM-relevant control structure not already represented clearly.
-3. **Evidence quality** — the Index assessment supports the organizational summary.
-4. **Current relevance** — activity, adoption, or contemporary architectural importance may break ties between otherwise similar projects.
-
-GitHub stars and VSM autonomy rank are not admission scores.
-
-When two projects instantiate essentially the same organization, prefer the clearest representative. A new entry should improve the map, not merely increase the count.
-
 ## What Belongs Where
 
 ### Organizational Building Blocks
 
 Use this section for reusable foundations from which downstream developers construct or specialize an agent organization.
 
-Typical signals include first-party surfaces for composing roles, policies, models, coordination, authority, or other organizational decision rights.
-
-This section should remain compact. Broad framework coverage belongs in the Index and in other Awesome lists.
+Typical signals include first-party surfaces for composing roles, policies, models, coordination, authority, or other organizational decision rights. This section should remain compact; broad framework coverage belongs in the Index and in other Awesome lists.
 
 ### Priority Domain Views
 
-The README currently keeps domain coverage at the **view level** rather than maintaining populated domain sections for common categories such as coding, browser use, or generic research.
-
-Priority domains are curation directions, not quotas. A domain should become a populated section only when the Index contains enough completed assessments to show a meaningful organizational contrast through VSM.
-
-A domain label is not justified merely because:
-
-- the maintainer belongs to that industry;
-- the harness exposes generic governance, safety, workflow, or policy features;
-- a downstream user could configure the harness for the domain;
-- one README example mentions the domain.
-
-Until a domain reaches the threshold for a useful curated comparison, its candidate systems should remain discoverable and assessed in the Index.
+Use the [README domain-view contract](README.md#priority-domain-views). Domain sections are created only when the Index contains enough completed assessments to support a meaningful organizational contrast; domain labels are not quotas or generic application buckets.
 
 ## VSM Evidence and Classification
 
@@ -90,15 +64,7 @@ Keep entries concise and organizationally specific. Use the stable Index `harnes
 - [Project](https://github.com/org/repo) — Mission and organizational signature: what performs the operational work, and what is distinctive about coordination, regulation, audit, adaptation, policy, or authority. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/project.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#project).
 ```
 
-A good entry can usually be derived from three questions:
-
-```text
-Mission: what real-world work does the organization perform?
-Operations: what acts as S1?
-Control and authority: what is distinctive about the metasystem or parent authority?
-```
-
-Avoid generic feature inventories such as `memory · tools · MCP · planning` unless one of those features is directly relevant to the organizational distinction.
+Use the README's [How to Read an Entry](README.md#how-to-read-an-entry) questions when writing the summary. Avoid generic feature inventories such as `memory · tools · MCP · planning` unless a feature is directly relevant to the organizational distinction.
 
 ## Machine-checkable Index consistency
 
@@ -120,14 +86,6 @@ To run the deterministic check locally with the repositories checked out side by
 python scripts/validate_index_consistency.py --index-dir ../vsm-harness-index
 python -m unittest discover -s tests -v
 ```
-
-## Domain and VSM Are Orthogonal
-
-Domain placement must not be inferred from the autonomy vector, and autonomy rank must not be used as a proxy for domain importance.
-
-Two systems in the same domain may have different VSM forms. Two systems in different domains may share the same form. Both observations are useful.
-
-The purpose of this repository is to expose those contrasts without changing the canonical assessment methodology.
 
 ## Pull Requests
 
