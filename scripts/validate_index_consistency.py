@@ -14,6 +14,9 @@ GENERAL_ASSESSMENT_LINK_RE = re.compile(
     + re.escape(GENERAL_INDEX_BLOB_BASE)
     + r"/assessments/([A-Za-z0-9._-]+)\.md\)"
 )
+# Backward-compatible import for repository-owned renderers that consume the
+# canonical general-assessment link matcher.
+ASSESSMENT_LINK_RE = GENERAL_ASSESSMENT_LINK_RE
 MARKDOWN_LINK_RE = re.compile(r"\[([^\]]+)\]\((https?://[^)\s]+)\)")
 STATE_VECTOR_RE = re.compile(
     r"(?<![A-Za-z0-9])(?:A|C|P|—|\?)(?:\s+(?:A|C|P|—|\?)){5}(?![A-Za-z0-9])"
