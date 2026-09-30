@@ -141,10 +141,6 @@ These lists are complementary discovery sources. Some organize the ecosystem by 
 
 ## Contributing
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) for the actionable curation and pull-request contract.
 
-For **currently tracked work across the bounded VSM Harness OSS group**, use the shared `TODO.md` link near the top of this README, then return here when the selected task is Awesome-owned. The shared scheduler owns current selection/order only; Awesome remains authoritative for local curation and presentation acceptance.
-
-New harness discovery, missing evidence, and VSM classification changes should go through the [Index contributor entry point](https://github.com/opensiro/vsm-harness-index/blob/main/CONTRIBUTOR_START.md) first. This repository should stay a curated downstream view rather than becoming a second source of truth.
-
-Questions or proposals about **the organization shared by Profile, Skills, Index, and Awesome** — contributor roles, authority boundaries, cross-repository control/coordination, escalation, current-work ordering, milestone sequencing, or the shared contribution workflow — belong in [`opensiro/vsm-oss-organization`](https://github.com/opensiro/vsm-oss-organization). Keep Awesome-specific curation and presentation work here.
+Use this repository for curated presentation changes. New harness discovery, missing evidence, and VSM classification changes belong in the [Index contribution workflow](https://github.com/opensiro/vsm-harness-index/blob/main/CONTRIBUTING.md); the shared entry routes at the top of this README own cross-repository routing.
