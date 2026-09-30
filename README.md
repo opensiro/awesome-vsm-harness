@@ -58,7 +58,7 @@ A project belongs in this Awesome list because it is a useful **organizational e
 
 ## Assessment Views
 
-The canonical [VSM Harness Index](https://github.com/opensiro/vsm-harness-index) is the **general OpenSiro VSM Harness assessment corpus**. Links from entries below into that repository are therefore labeled `General assessment`.
+The canonical general assessment corpus is `opensiro/vsm-harness-index`. Links from entries below into that repository are therefore labeled `General assessment`.
 
 The Profile may also support future domain-specific assessment specifications and their own domain-specific indexes. Those are separate assessment systems with explicit methodology and provenance, not filtered views of the general Index.
 
