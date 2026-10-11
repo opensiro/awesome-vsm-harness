@@ -8,6 +8,7 @@ A curated map of **distinct organizational forms in agent harnesses across real-
 - [I'm human](#im-human)
 - [I'm AI](#im-ai)
 - [Scope](#scope)
+- [Assessment Views](#assessment-views)
 - [Selection Principle](#selection-principle)
 - [How to Read an Entry](#how-to-read-an-entry)
 - [Organizational Building Blocks](#organizational-building-blocks)
@@ -27,7 +28,7 @@ Treat this README as the public handoff surface, then continue with the current 
 
 If the bootstrap resolves Awesome work to this repository, Awesome-specific selection, curation, presentation, validation, evidence linkage, and acceptance remain authoritative here.
 
-This repository is intentionally **not** an exhaustive harness directory. Discovery and assessment live in the [VSM Harness Index](https://github.com/opensiro/vsm-harness-index). Awesome VSM Harness selects representative systems from that evidence base to answer a different question:
+This repository is intentionally **not** an exhaustive harness directory. Discovery and the canonical general assessment corpus live in the [VSM Harness Index](https://github.com/opensiro/vsm-harness-index). Awesome VSM Harness selects representative systems from that evidence base to answer a different question:
 
 > What kind of organization does this harness instantiate, and where do operations, coordination, regulation, audit, adaptation, policy, and ultimate authority reside?
 
@@ -51,9 +52,25 @@ The VSM view asks where the following organizational functions live inside a har
 
 **S5 — Policy and identity:** ultimate policy, identity, and authority.
 
-The underlying assessments also record who owns those functions using the OpenSiro `A / C / P / — / ?` notation. Canonical state vectors, evidence, TL;DRs, and rankings remain in the Index rather than being copied here.
+The underlying assessments also record who owns those functions using the OpenSiro `A / C / P / — / ?` notation. Canonical general state vectors, evidence, TL;DRs, and rankings remain in the Index rather than being copied here.
 
 A project belongs in this Awesome list because it is a useful **organizational example**, not merely because it is popular, technically capable, or present in another directory.
+
+## Assessment Views
+
+The canonical general assessment corpus is `opensiro/vsm-harness-index`. Links from entries below into that repository are therefore labeled `General assessment`.
+
+The Profile may also support future domain-specific assessment specifications and their own domain-specific indexes. Those are separate assessment systems with explicit methodology and provenance, not filtered views of the general Index.
+
+Awesome may eventually curate multiple assessment views for one system, for example:
+
+```text
+General assessment · SWE assessment · Science assessment
+```
+
+but only when those distinct assessment contracts and corpora actually exist. A Priority Domain View in this repository is presentation/curation and does **not** by itself create a domain-specific assessment system.
+
+See [ASSESSMENT_VIEWS.md](ASSESSMENT_VIEWS.md) for the routing contract.
 
 ## Selection Principle
 
@@ -63,7 +80,7 @@ Selection optimizes for **domain relevance**: the system is genuinely designed t
 
 It also optimizes for **organizational distinctiveness**: the system exposes a VSM-relevant organizational form that is not already represented clearly by another entry.
 
-**Evidence quality** matters because the corresponding Index assessment must be complete enough to support the description.
+**Evidence quality** matters because the corresponding general Index assessment must be complete enough to support the description.
 
 Finally, **current relevance** such as activity, adoption, or contemporary architectural importance may break ties between otherwise similar systems.
 
@@ -84,7 +101,7 @@ Control and authority: what is distinctive about coordination, regulation,
 audit, adaptation, policy, or parent authority?
 ```
 
-The detailed evidence remains one click away in the Index through `Assessment`, `TL;DR`, and `Ranking` links.
+The detailed evidence remains one click away in the general Index through `General assessment`, `TL;DR`, and `Ranking` links. If a separate domain-specific assessment view is later listed, it will be labeled explicitly.
 
 Domain and organizational shape are separate dimensions. Two harnesses in the same domain may implement very different control structures; two harnesses in different domains may share a similar VSM form.
 
@@ -92,11 +109,11 @@ Domain and organizational shape are separate dimensions. Two harnesses in the sa
 
 Reusable foundations from which downstream developers construct or specialize an agent organization. These are kept deliberately compact because broad framework coverage belongs in the Index and in other Awesome lists.
 
-- [Agno](https://github.com/agno-agi/agno) - Reusable agent and team runtime in which downstream builders define the operational roles, team topology, and substantial control structure. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/agno.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#agno) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#agno).
-- [CrewAI](https://github.com/crewAIInc/crewAI) - Role-oriented constructor for creating operational crews and manager-mediated organizations whose final policy and domain closure remain application-defined. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/crewai.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#crewai) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#crewai).
-- [LangGraph](https://github.com/langchain-ai/langgraph) - Stateful graph runtime that lets a downstream system encode coordination and control paths while leaving the organizational meaning of those paths to the application. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/langgraph.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#langgraph) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#langgraph).
-- [Microsoft AutoGen AgentChat](https://github.com/microsoft/autogen) - Multi-agent constructor with autonomous participants and team coordination patterns; higher-order organizational closure remains largely application-owned. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/autogen-agentchat.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#autogen-agentchat) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#autogen-agentchat).
-- [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Minimal constructor around tool-using agents, handoffs, guardrails, sessions, and tracing; the application retains responsibility for the broader organization. [Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openai-agents-sdk.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#openai-agents-sdk) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#openai-agents-sdk).
+- [Agno](https://github.com/agno-agi/agno) - Reusable agent and team runtime in which downstream builders define the operational roles, team topology, and substantial control structure. [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/agno.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#agno) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#agno).
+- [CrewAI](https://github.com/crewAIInc/crewAI) - Role-oriented constructor for creating operational crews and manager-mediated organizations whose final policy and domain closure remain application-defined. [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/crewai.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#crewai) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#crewai).
+- [LangGraph](https://github.com/langchain-ai/langgraph) - Stateful graph runtime that lets a downstream system encode coordination and control paths while leaving the organizational meaning of those paths to the application. [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/langgraph.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#langgraph) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#langgraph).
+- [Microsoft AutoGen AgentChat](https://github.com/microsoft/autogen) - Multi-agent constructor with autonomous participants and team coordination patterns; higher-order organizational closure remains largely application-owned. [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/autogen-agentchat.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#autogen-agentchat) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#autogen-agentchat).
+- [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) - Minimal constructor around tool-using agents, handoffs, guardrails, sessions, and tracing; the application retains responsibility for the broader organization. [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/openai-agents-sdk.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#openai-agents-sdk) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#openai-agents-sdk).
 
 ## Priority Domain Views
 
@@ -125,7 +142,7 @@ These are **curation directions**, not empty categories and not a completeness c
   <dd>Can policy and ultimate authority be internalized or distributed, and what actually performs S5?</dd>
 </dl>
 
-Until a domain reaches that threshold, its candidate harnesses remain discoverable and assessed in the Index rather than being duplicated here. This keeps the Awesome list differentiated from broad domain-oriented agent catalogs and prevents early categories such as coding, browser use, or generic research from dominating the presentation merely because they already have many projects.
+Until a domain reaches that threshold, its candidate harnesses remain discoverable and assessed in the general Index rather than being duplicated here. If a distinct domain-specific index is later created, it remains a separate assessment system and may be linked here explicitly. This keeps the Awesome list differentiated from broad domain-oriented agent catalogs and prevents early categories such as coding, browser use, or generic research from dominating the presentation merely because they already have many projects.
 
 ## Related Awesome Lists
 
@@ -145,6 +162,6 @@ Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 
 For **currently tracked work across the bounded VSM Harness OSS group**, use the shared `TODO.md` link near the top of this README, then return here when the selected task is Awesome-owned. The shared scheduler owns current selection/order only; Awesome remains authoritative for local curation and presentation acceptance.
 
-New harness discovery, missing evidence, and VSM classification changes should go through the [Index contributor entry point](https://github.com/opensiro/vsm-harness-index/blob/main/CONTRIBUTOR_START.md) first. This repository should stay a curated downstream view rather than becoming a second source of truth.
+New harness discovery, missing evidence, and general VSM classification changes should go through the [Index contributor entry point](https://github.com/opensiro/vsm-harness-index/blob/main/CONTRIBUTOR_START.md) first. Domain-specific assessment changes belong to the assessment system that owns that domain contract rather than being inferred in Awesome. This repository should stay a curated downstream view rather than becoming a second source of truth.
 
 Questions or proposals about **the organization shared by Profile, Skills, Index, and Awesome** — contributor roles, authority boundaries, cross-repository control/coordination, escalation, current-work ordering, milestone sequencing, or the shared contribution workflow — belong in [`opensiro/vsm-oss-organization`](https://github.com/opensiro/vsm-oss-organization). Keep Awesome-specific curation and presentation work here.
