@@ -63,6 +63,37 @@ status: included
         self.assertEqual([], errors)
         self.assertEqual(1, entries)
 
+    def test_sharded_link_resolves_sharded_record(self):
+        source = self.index_dir / "assessments" / "alpha.md"
+        target = self.index_dir / "assessments" / "al" / "alpha.md"
+        target.parent.mkdir()
+        source.rename(target)
+        readme = self.valid_entry.replace("/assessments/alpha.md", "/assessments/al/alpha.md")
+        errors, entries = validate(readme, self.index_dir)
+        self.assertEqual([], errors)
+        self.assertEqual(1, entries)
+
+    def test_old_flat_link_after_cutover_is_rejected(self):
+        source = self.index_dir / "assessments" / "alpha.md"
+        target = self.index_dir / "assessments" / "al" / "alpha.md"
+        target.parent.mkdir()
+        source.rename(target)
+        self.assert_error_contains(self.valid_entry, "stale or premature path")
+
+    def test_sharded_link_before_cutover_is_rejected(self):
+        readme = self.valid_entry.replace("/assessments/alpha.md", "/assessments/al/alpha.md")
+        self.assert_error_contains(readme, "stale or premature path")
+
+    def test_invalid_shard_rejected(self):
+        readme = self.valid_entry.replace("/assessments/alpha.md", "/assessments/zz/alpha.md")
+        self.assert_error_contains(readme, "incorrect shard")
+
+    def test_duplicate_flat_and_sharded_records_rejected(self):
+        target = self.index_dir / "assessments" / "al" / "alpha.md"
+        target.parent.mkdir()
+        target.write_bytes((self.index_dir / "assessments" / "alpha.md").read_bytes())
+        self.assert_error_contains(self.valid_entry, "both flat and sharded")
+
     def test_domain_specific_link_does_not_satisfy_general_index_contract(self):
         readme = self.valid_entry.replace(
             f"[General assessment]({GENERAL_INDEX_BLOB_BASE}/assessments/alpha.md)",

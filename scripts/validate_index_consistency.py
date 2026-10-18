@@ -12,7 +12,7 @@ GENERAL_INDEX_BLOB_BASE = "https://github.com/opensiro/vsm-harness-index/blob/ma
 GENERAL_ASSESSMENT_LINK_RE = re.compile(
     r"\[(?:General assessment|Assessment)\]\("
     + re.escape(GENERAL_INDEX_BLOB_BASE)
-    + r"/assessments/([A-Za-z0-9._-]+)\.md\)"
+    + r"/assessments/(?:[A-Za-z0-9._-]+/)?([A-Za-z0-9._-]+)\.md\)"
 )
 # Backward-compatible import for repository-owned renderers that consume the
 # canonical general-assessment link matcher.
@@ -107,11 +107,27 @@ def validate(readme_text: str, index_dir: Path) -> tuple[list[str], int]:
         harness_id = assessment_match.group(1)
         prefix = f"README.md:{line_number} [{harness_id}]"
 
-        assessment_path = index_dir / "assessments" / f"{harness_id}.md"
-        if not assessment_path.is_file():
-            errors.append(
-                f"{prefix}: general assessment does not exist: assessments/{harness_id}.md"
-            )
+        # Validate the link target against the *actual* Index checkout. This
+        # catches stale flat links after cutover and premature sharded links
+        # before cutover, while allowing either layout during deployment.
+        flat_relative = f"assessments/{harness_id}.md"
+        sharded_relative = f"assessments/{harness_id[:2]}/{harness_id}.md"
+        actual_relative = assessment_match.group(0).split("/assessments/", 1)[1].removesuffix(")")
+        if actual_relative not in (f"{harness_id}.md", f"{harness_id[:2]}/{harness_id}.md"):
+            errors.append(f"{prefix}: assessment link has an incorrect shard")
+            continue
+        candidates = [index_dir / flat_relative, index_dir / sharded_relative]
+        existing = [path for path in candidates if path.is_file()]
+        if not existing:
+            errors.append(f"{prefix}: general assessment does not exist: {flat_relative} or {sharded_relative}")
+            continue
+        if len(existing) != 1:
+            errors.append(f"{prefix}: assessment exists in both flat and sharded layout")
+            continue
+        assessment_path = existing[0]
+        resolved_relative = assessment_path.relative_to(index_dir).as_posix().removeprefix("assessments/")
+        if actual_relative != resolved_relative:
+            errors.append(f"{prefix}: assessment link points at a stale or premature path: {actual_relative}; expected {resolved_relative}")
             continue
 
         front_matter = parse_front_matter(assessment_path.read_text(encoding="utf-8"))
