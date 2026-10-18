@@ -40,7 +40,7 @@ status: included
         )
         self.valid_entry = (
             "- [Alpha](https://github.com/example/alpha) - Organizational summary. "
-            f"[General assessment]({GENERAL_INDEX_BLOB_BASE}/assessments/alpha.md) · "
+            f"[General assessment]({GENERAL_INDEX_BLOB_BASE}/assessments/al/alpha.md) · "
             f"[TL;DR]({GENERAL_INDEX_BLOB_BASE}/TLDR.md#alpha) · "
             f"[Ranking]({GENERAL_INDEX_BLOB_BASE}/RANKINGS.md#alpha)."
         )
@@ -63,15 +63,34 @@ status: included
         self.assertEqual([], errors)
         self.assertEqual(1, entries)
 
+    def test_actual_sharded_index_passes(self):
+        source = self.index_dir / "assessments" / "alpha.md"
+        target = self.index_dir / "assessments" / "al" / "alpha.md"
+        target.parent.mkdir()
+        source.rename(target)
+        errors, entries = validate(self.valid_entry, self.index_dir)
+        self.assertEqual([], errors)
+        self.assertEqual(1, entries)
+
+    def test_flat_legacy_link_remains_accepted_before_cutover(self):
+        readme = self.valid_entry.replace("/assessments/al/alpha.md", "/assessments/alpha.md")
+        errors, entries = validate(readme, self.index_dir)
+        self.assertEqual([], errors)
+        self.assertEqual(1, entries)
+
+    def test_incorrect_shard_fails_closed(self):
+        readme = self.valid_entry.replace("/assessments/al/alpha.md", "/assessments/zz/alpha.md")
+        self.assert_error_contains(readme, "incorrect shard")
+
     def test_domain_specific_link_does_not_satisfy_general_index_contract(self):
         readme = self.valid_entry.replace(
-            f"[General assessment]({GENERAL_INDEX_BLOB_BASE}/assessments/alpha.md)",
+            f"[General assessment]({GENERAL_INDEX_BLOB_BASE}/assessments/al/alpha.md)",
             "[SWE assessment](https://github.com/example/vsm-harness-capability-swe/blob/main/assessments/alpha.md)",
         )
         self.assert_error_contains(readme, "no general-Index-backed curated harness entries")
 
     def test_missing_assessment_fails(self):
-        readme = self.valid_entry.replace("alpha.md", "missing.md")
+        readme = self.valid_entry.replace("/assessments/al/alpha.md", "/assessments/mi/missing.md")
         self.assert_error_contains(readme, "general assessment does not exist")
 
     def test_repository_mismatch_fails(self):

@@ -22,7 +22,7 @@ class MetricsTests(unittest.TestCase):
         self.assertEqual(actual, expected)
 
     def test_duplicate_curated_identity_fails(self):
-        link = "[Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/alpha.md)"
+        link = "[Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/al/alpha.md)"
         with self.assertRaises(ValueError):
             metrics.parse_curated_ids(f"- A {link}\n- B {link}\n")
 
@@ -31,9 +31,9 @@ class MetricsTests(unittest.TestCase):
             repo = Path(tmp)
             (repo / "README.md").write_text(
                 "- [A](https://example.com/a) - A. "
-                "[Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/alpha.md)\n"
+                "[Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/al/alpha.md)\n"
                 "- [B](https://example.com/b) - B. "
-                "[Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/beta.md)\n",
+                "[Assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/be/beta.md)\n",
                 encoding="utf-8",
             )
             result = metrics.compute_core_metrics(repo)

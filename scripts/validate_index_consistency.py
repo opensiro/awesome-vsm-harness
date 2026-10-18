@@ -12,7 +12,7 @@ GENERAL_INDEX_BLOB_BASE = "https://github.com/opensiro/vsm-harness-index/blob/ma
 GENERAL_ASSESSMENT_LINK_RE = re.compile(
     r"\[(?:General assessment|Assessment)\]\("
     + re.escape(GENERAL_INDEX_BLOB_BASE)
-    + r"/assessments/([A-Za-z0-9._-]+)\.md\)"
+    + r"/assessments/(?:[A-Za-z0-9._-]+/)?([A-Za-z0-9._-]+)\.md\)"
 )
 # Backward-compatible import for repository-owned renderers that consume the
 # canonical general-assessment link matcher.
@@ -107,12 +107,24 @@ def validate(readme_text: str, index_dir: Path) -> tuple[list[str], int]:
         harness_id = assessment_match.group(1)
         prefix = f"README.md:{line_number} [{harness_id}]"
 
-        assessment_path = index_dir / "assessments" / f"{harness_id}.md"
-        if not assessment_path.is_file():
+        # Accept the new deterministic sharded URL while reading either source
+        # layout during Index #55's cross-repository transition.
+        sharded_relative = f"assessments/{harness_id[:2]}/{harness_id}.md"
+        flat_relative = f"assessments/{harness_id}.md"
+        matched_url = assessment_match.group(0)
+        if f"/assessments/" in matched_url:
+            source_relative = matched_url.split("/assessments/", 1)[1].removesuffix(")")
+            if source_relative not in (f"{harness_id}.md", f"{harness_id[:2]}/{harness_id}.md"):
+                errors.append(f"{prefix}: assessment link has an incorrect shard")
+                continue
+        candidates = [index_dir / sharded_relative, index_dir / flat_relative]
+        existing = [path for path in candidates if path.is_file()]
+        if len(existing) != 1:
             errors.append(
-                f"{prefix}: general assessment does not exist: assessments/{harness_id}.md"
+                f"{prefix}: general assessment does not exist uniquely: {sharded_relative}"
             )
             continue
+        assessment_path = existing[0]
 
         front_matter = parse_front_matter(assessment_path.read_text(encoding="utf-8"))
         canonical_harness_id = front_matter.get("harness_id")
