@@ -9,8 +9,8 @@ class IndexConsistencyTests(unittest.TestCase):
     def setUp(self):
         self.tempdir = tempfile.TemporaryDirectory()
         self.index_dir = Path(self.tempdir.name)
-        (self.index_dir / "assessments").mkdir()
-        (self.index_dir / "assessments" / "alpha.md").write_text(
+        (self.index_dir / "assessments" / "al").mkdir(parents=True)
+        (self.index_dir / "assessments" / "al" / "alpha.md").write_text(
             """---
 harness_id: alpha
 project_name: Alpha
@@ -63,24 +63,29 @@ status: included
         self.assertEqual([], errors)
         self.assertEqual(1, entries)
 
-    def test_actual_sharded_index_passes(self):
-        source = self.index_dir / "assessments" / "alpha.md"
-        target = self.index_dir / "assessments" / "al" / "alpha.md"
-        target.parent.mkdir()
-        source.rename(target)
+    def test_sharded_link_resolves_sharded_record(self):
         errors, entries = validate(self.valid_entry, self.index_dir)
         self.assertEqual([], errors)
         self.assertEqual(1, entries)
 
-    def test_flat_legacy_link_remains_accepted_before_cutover(self):
-        readme = self.valid_entry.replace("/assessments/al/alpha.md", "/assessments/alpha.md")
-        errors, entries = validate(readme, self.index_dir)
-        self.assertEqual([], errors)
-        self.assertEqual(1, entries)
+    def test_old_flat_link_after_cutover_is_rejected(self):
+        old_link = self.valid_entry.replace("/assessments/al/alpha.md", "/assessments/alpha.md")
+        self.assert_error_contains(old_link, "stale or premature path")
 
-    def test_incorrect_shard_fails_closed(self):
+    def test_sharded_link_before_cutover_is_rejected(self):
+        new_path = self.index_dir / "assessments" / "al" / "alpha.md"
+        flat_path = self.index_dir / "assessments" / "alpha.md"
+        new_path.rename(flat_path)
+        self.assert_error_contains(self.valid_entry, "stale or premature path")
+
+    def test_invalid_shard_rejected(self):
         readme = self.valid_entry.replace("/assessments/al/alpha.md", "/assessments/zz/alpha.md")
         self.assert_error_contains(readme, "incorrect shard")
+
+    def test_duplicate_flat_and_sharded_records_rejected(self):
+        target = self.index_dir / "assessments" / "alpha.md"
+        target.write_bytes((self.index_dir / "assessments" / "al" / "alpha.md").read_bytes())
+        self.assert_error_contains(self.valid_entry, "both flat and sharded")
 
     def test_domain_specific_link_does_not_satisfy_general_index_contract(self):
         readme = self.valid_entry.replace(

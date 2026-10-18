@@ -107,24 +107,28 @@ def validate(readme_text: str, index_dir: Path) -> tuple[list[str], int]:
         harness_id = assessment_match.group(1)
         prefix = f"README.md:{line_number} [{harness_id}]"
 
-        # Accept the new deterministic sharded URL while reading either source
-        # layout during Index #55's cross-repository transition.
-        sharded_relative = f"assessments/{harness_id[:2]}/{harness_id}.md"
+        # Validate the link target against the *actual* Index checkout. This
+        # catches stale flat links after cutover and premature sharded links
+        # before cutover, while allowing either layout during deployment.
         flat_relative = f"assessments/{harness_id}.md"
-        matched_url = assessment_match.group(0)
-        if f"/assessments/" in matched_url:
-            source_relative = matched_url.split("/assessments/", 1)[1].removesuffix(")")
-            if source_relative not in (f"{harness_id}.md", f"{harness_id[:2]}/{harness_id}.md"):
-                errors.append(f"{prefix}: assessment link has an incorrect shard")
-                continue
-        candidates = [index_dir / sharded_relative, index_dir / flat_relative]
+        sharded_relative = f"assessments/{harness_id[:2]}/{harness_id}.md"
+        actual_relative = assessment_match.group(0).split("/assessments/", 1)[1].removesuffix(")")
+        if actual_relative not in (f"{harness_id}.md", f"{harness_id[:2]}/{harness_id}.md"):
+            errors.append(f"{prefix}: assessment link has an incorrect shard")
+            continue
+        candidates = [index_dir / flat_relative, index_dir / sharded_relative]
         existing = [path for path in candidates if path.is_file()]
+        if not existing:
+            errors.append(f"{prefix}: general assessment does not exist: {flat_relative} or {sharded_relative}")
+            continue
         if len(existing) != 1:
-            errors.append(
-                f"{prefix}: general assessment does not exist uniquely: {sharded_relative}"
-            )
+            errors.append(f"{prefix}: assessment exists in both flat and sharded layout")
             continue
         assessment_path = existing[0]
+        resolved_relative = assessment_path.relative_to(index_dir).as_posix().removeprefix("assessments/")
+        if actual_relative != resolved_relative:
+            errors.append(f"{prefix}: assessment link points at a stale or premature path: {actual_relative}; expected {resolved_relative}")
+            continue
 
         front_matter = parse_front_matter(assessment_path.read_text(encoding="utf-8"))
         canonical_harness_id = front_matter.get("harness_id")
