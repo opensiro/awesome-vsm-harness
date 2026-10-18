@@ -101,13 +101,13 @@ Keep entries concise and organizationally specific. Use the stable general Index
 When only the general assessment exists:
 
 ```md
-- [Project](https://github.com/org/repo) — Mission and organizational signature: what performs the operational work, and what is distinctive about coordination, regulation, audit, adaptation, policy, or authority. [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/project.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#project).
+- [Project](https://github.com/org/repo) — Mission and organizational signature: what performs the operational work, and what is distinctive about coordination, regulation, audit, adaptation, policy, or authority. [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/pr/project.md) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project) · [Ranking](https://github.com/opensiro/vsm-harness-index/blob/main/RANKINGS.md#project).
 ```
 
 When a separate domain-specific assessment also exists:
 
 ```md
-- [Project](https://github.com/org/repo) — ... [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/project.md) · [<Domain> assessment](https://github.com/owner/domain-index/...) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project).
+- [Project](https://github.com/org/repo) — ... [General assessment](https://github.com/opensiro/vsm-harness-index/blob/main/assessments/pr/project.md) · [<Domain> assessment](https://github.com/owner/domain-index/...) · [TL;DR](https://github.com/opensiro/vsm-harness-index/blob/main/TLDR.md#project).
 ```
 
 A good entry can usually be derived from three questions:
