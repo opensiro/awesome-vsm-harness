@@ -16,7 +16,7 @@ A curated map of **distinct organizational forms in agent harnesses across real-
 
 ## I'm human
 
-- **I don't understand any of this:** [Show me the visual map](https://opensiro.com/vsm.html) — a direct, illustrated introduction to the VSM approach.
+- **I don't understand any of this:** [Show me the visual map](https://opensiro.com/vsm.html).
 - **Web overview:** [opensiro.com](https://opensiro.com)
 - **How do I contribute?** [Contribute to OpenSiro with AI](https://github.com/opensiro/vsm-oss-organization/blob/main/CONTRIBUTE_WITH_AI.md)
 
